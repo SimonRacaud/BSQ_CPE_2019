@@ -29,7 +29,7 @@ void display_result(board_t *board, file_data_t *file)
     write(1, file->board_start, my_strlen(file->board_start));
 }
 
-static UINT min(UINT const *a, UINT const *b, UINT const *c)
+static unsigned int min(UINT const *a, UINT const *b, UINT const *c)
 {
     unsigned int min = *a;
 

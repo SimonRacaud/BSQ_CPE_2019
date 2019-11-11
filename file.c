@@ -80,13 +80,13 @@ int check_board(file_data_t *file)
     return 0;
 }
 
-file_data_t *read_file(char *filename)
+file_data_t *read_file(char *file_name)
 {
     file_data_t *file = malloc(sizeof(file_data_t));
-    int fd = open(filename, O_RDONLY);
+    int fd = open(file_name, O_RDONLY);
     int ret;
 
-    ret = stat(filename, &file->stat_file);
+    ret = stat(file_name, &file->stat_file);
     if (fd == -1 || ret != 0) {
         my_putstr_error("ERROR: open file\n");
         return NULL;

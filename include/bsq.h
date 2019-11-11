@@ -15,6 +15,7 @@
 #include <stdlib.h>
 
 #define UINT unsigned int
+typedef struct stat stat_t;
 
 typedef struct board {
     unsigned int *sol;
@@ -26,16 +27,16 @@ typedef struct board {
 typedef struct file_data {
     char *buffer;
     char *board_start;
-    struct stat stat_file;
+    stat_t stat_file;
     unsigned int lines;
     unsigned int column;
 } file_data_t;
 
-int bsq(char *filename);
+int bsq(char *file_name);
 
 int check_board(file_data_t *file);
 board_t *create_board(file_data_t *file);
-file_data_t *read_file(char *filename);
+file_data_t *read_file(char *file_name);
 
 void display_result(board_t *board, file_data_t *file);
 void resolve(board_t *board);

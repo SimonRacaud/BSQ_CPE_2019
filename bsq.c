@@ -8,12 +8,12 @@
 #include "bsq.h"
 #include "my.h"
 
-int bsq(char *filename)
+int bsq(char *file_name)
 {
     file_data_t *file;
     board_t *board;
 
-    file = read_file(filename);
+    file = read_file(file_name);
     if (file == NULL)
         return 84;
     if (file->lines == 1 || file->column == 2)

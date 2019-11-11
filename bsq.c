@@ -8,17 +8,6 @@
 #include "bsq.h"
 #include "my.h"
 
-void debug_dispay(board_t *board) // DEBUG
-{
-    for (int i = 0; i < board->y; i++) {
-        for (int j = 0; j < board->x; j++) {
-            my_put_nbr(board->b[board->x * i + j]);
-            my_putchar(' ');
-        }
-        my_putchar('\n');
-    }
-}
-
 int bsq(char *filename)
 {
     file_data_t *file;

@@ -16,7 +16,7 @@ board_t *create_board(file_data_t *file)
     int i = -1;
     int j = 0;
 
-    board->b = malloc(sizeof(UINT) * file->lines * (file->column - 1));
+    board->b = malloc(sizeof(uint_t) * file->lines * (file->column - 1));
     if (board == NULL || board->b == NULL)
         return NULL;
     while (file->board_start[++i] != '\0') {

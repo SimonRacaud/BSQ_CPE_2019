@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#define UINT unsigned int
+typedef unsigned int uint_t;
 typedef struct stat stat_t;
 
 typedef struct board {

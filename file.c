@@ -22,7 +22,7 @@ board_t *create_board(file_data_t *file)
     while (file->board_start[++i] != '\0') {
         if (file->board_start[i] == 'o')
             board->b[j] = 0;
-        else if (file->board_start[i] == '.')
+        if (file->board_start[i] == '.')
             board->b[j] = 1;
         if (file->board_start[i] != '\n')
             j++;
@@ -84,14 +84,14 @@ file_data_t *read_file(char *file_name)
 {
     file_data_t *file = malloc(sizeof(file_data_t));
     int fd = open(file_name, O_RDONLY);
-    int ret;
+    int ret = stat(file_name, &file->stat_file);
 
-    ret = stat(file_name, &file->stat_file);
     if (fd == -1 || ret != 0) {
         my_putstr_error("ERROR: open file\n");
         return NULL;
     }
-    file->buffer = malloc(sizeof(char) * (file->stat_file.st_size + 1));
+    if (!(file->buffer = malloc(sizeof(char) * (file->stat_file.st_size + 1))))
+        return NULL;
     ret = read(fd, file->buffer, (file->stat_file.st_size + 1));
     close(fd);
     if (ret == -1) {

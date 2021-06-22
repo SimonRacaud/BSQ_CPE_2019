@@ -1,4 +1,5 @@
 # CPE_BSQ_2019
+Epitech's first-year project.
 
 # Suject
 Find the largest possible square on a board while avoiding obstacles.
